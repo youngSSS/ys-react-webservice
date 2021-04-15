@@ -1,19 +1,12 @@
-import { Route } from 'react-router-dom'
+import { Route } from "react-router-dom";
 
-import Main from './routes/Main'
-import Home from './routes/Home'
-import Portfolio from './routes/Portfolio'
-import Board from './routes/Board'
-
+import Welcome from "./routes/Welcome";
 import "./styles/App.scss";
 
 function App() {
   return (
     <div className="app">
-      <Route exact path="/" component={Main} />
-      <Route path="/Home" component={Home} />
-      <Route path="/portfolio" component={Portfolio} />
-      <Route path="/board" component={Board} />
+      <Route exact path="/" component={Welcome} />
     </div>
   );
 }

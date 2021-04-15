@@ -1,23 +1,16 @@
-import React from "react";
-import { useHistory } from "react-router-dom";
-
-import "../styles/routes/Main.scss";
-
-import MainBackground from "../images/main-background.jpeg";
+import { Route } from "react-router-dom";
+import Home from "./Home";
+import Portfolio from "./Portfolio";
+import Board from "./Board";
+import NotFound from "../components/utils/NotFound";
 
 function Main() {
-  const history = useHistory();
   return (
     <div className="main">
-      <div className="welcome-comment">YS Web</div>
-      <button className="main-button" onClick={() => history.push("/Home")}>
-        Home
-      </button>
-      <img
-        className="main-background"
-        src={MainBackground}
-        alt="main-background"
-      />
+      <Route path="/home" component={Home} />
+      <Route path="/portfolio" component={Portfolio} />
+      <Route path="/board" component={Board} />
+      <Route component={NotFound} />
     </div>
   );
 }
