@@ -1,4 +1,31 @@
 .navigation-bar {
-  min-height: 25vh;
-  background-color: wheat;
+  display: flex;
+  gap: 2rem;
+  background-color: white;
+  padding: 2rem;
+}
+
+.nav-header {
+  font-size: 4rem;
+  font-weight: 500;
+  color: black;
+  text-decoration: none;
+}
+
+.nav-body {
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+}
+
+.nav-list {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.nav-list__item {
+  color: #808080;
+  text-decoration: none;
+  margin: 0 0 0 5%;
 }

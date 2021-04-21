@@ -1,5 +1,4 @@
 import { Route, Switch } from "react-router-dom";
-
 import Main from "./routes/Main";
 import "./styles/App.scss";
 
