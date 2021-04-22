@@ -36,7 +36,7 @@ function Board() {
       </div>
 
       <div className="board">
-        <DataGrid rows={rows} columns={columns} pageSize={5} disableColumnMenu={true} onRowClick={(data) => handleRowClick(data.row)} />
+        <DataGrid rows={rows} columns={columns} pageSize={5} disableColumnMenu={true} hideFooterSelectedRowCount={true} onRowClick={(data) => handleRowClick(data.row)} />
       </div>
     </div>
   );
