@@ -1,0 +1,22 @@
+.board {
+  height: 400px;
+  width: 100%;
+  background-color: white;
+}
+
+.board-search {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 0 1rem 0;
+}
+
+.board-search-bar {
+  margin: 0 1rem 0 0;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.board-search-btn {
+  border: 1px solid black;
+  border-radius: 5px;
+}
