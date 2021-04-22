@@ -5,7 +5,7 @@ import "../../styles/components/NavigationBar.scss";
 function NavigationBar() {
   return (
     <div className="navigation-bar">
-      <Link className="nav-header" to="/home">
+      <Link className="nav-header" to="/">
         YS
       </Link>
       <div className="nav-body">
