@@ -1,8 +1,41 @@
+.portfolio {
+  display: grid;
+  grid-template-areas:
+    "about-me about-me"
+    "profile contact"
+    "skill skill"
+    "project project";
+  grid-gap: 1rem;
+}
+
+.portfolio__about-me {
+  grid-area: about-me;
+}
+.portfolio__profile {
+  grid-area: profile;
+}
+.portfolio__contact {
+  grid-area: contact;
+}
+.portfolio__skill {
+  grid-area: skill;
+}
+.portfolio__project {
+  grid-area: project;
+}
+
 .portfolio-btn {
   display: flex;
   justify-content: flex-end;
 
   &__edit {
     color: var(--gray);
+  }
+}
+
+.portfolio__title {
+  font: {
+    size: 2.5rem;
+    weight: 500;
   }
 }

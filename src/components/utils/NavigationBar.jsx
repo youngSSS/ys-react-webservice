@@ -5,21 +5,21 @@ import "../../styles/components/NavigationBar.scss";
 function NavigationBar() {
   return (
     <div className="navigation-bar">
-      <Link className="nav-header" to="/">
+      <Link to="/" className="nav-header">
         YS
       </Link>
       <div className="nav-body">
         <div className="nav-list">
-          <Link className="nav-list__item" to="/home">
+          <Link to="/home" className="nav-list__item">
             Home
           </Link>
-          <Link className="nav-list__item" to="/portfolio">
+          <Link to="/portfolio" className="nav-list__item">
             Portfolio
           </Link>
-          <Link className="nav-list__item" to="/board">
+          <Link to="/board" className="nav-list__item">
             Board
           </Link>
-          <Link className="nav-list__item" to="/authentication">
+          <Link to="/authentication" className="nav-list__item">
             Sign in
           </Link>
         </div>
