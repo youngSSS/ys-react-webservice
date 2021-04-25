@@ -1,0 +1,14 @@
+.sign-up-header {
+  font-size: 2rem;
+  margin: 0 0 2rem 0;
+}
+
+.sign-up-item {
+  display: flex;
+  margin: 0 0 1rem 0;
+
+  &__title {
+    width: 6rem;
+    padding: 0 1rem 0 0;
+  }
+}

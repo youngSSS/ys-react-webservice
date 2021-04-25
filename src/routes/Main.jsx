@@ -7,6 +7,7 @@ import Authentication from "./Authentication";
 import NotFound from "../components/utils/NotFound";
 
 import UpdatePortfolio from "../components/portfolio/UpdatePortfolio";
+import SignUp from "../components/authentication/SignUp";
 
 import "../styles/routes/Main.scss";
 import "../styles/routes/Page.scss";
@@ -29,7 +30,8 @@ function Main() {
         <Route path="/board" component={Board} />
 
         {/* Authentication */}
-        <Route path="/authentication" component={Authentication} />
+        <Route exact path="/authentication" component={Authentication} />
+        <Route path="/authentication/sign-up" component={SignUp} />
 
         {/* Not Found */}
         <Route component={NotFound} />
