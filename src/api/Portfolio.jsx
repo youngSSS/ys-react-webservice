@@ -1,11 +1,11 @@
 import axios from "axios";
-const url = process.env.SERVER_URL;
+const url = process.env.REACT_APP_SERVER_URL;
 
 async function getPortfolio() {
   let status, data;
 
   await axios
-    .get(`${url}/api/portfolio`)
+    .get(url + "/api/portfolio")
     .then((res) => {
       status = res.status;
       data = res.data;

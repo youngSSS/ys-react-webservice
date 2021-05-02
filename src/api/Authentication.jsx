@@ -1,11 +1,11 @@
 import axios from "axios";
-const url = process.env.SERVER_URL;
+const url = process.env.REACT_APP_SERVER_URL;
 
 async function signUp(data) {
   let status;
 
   await axios
-    .post("http://192.168.0.106:8080/api/authentication/sign-up", {
+    .post(url + "/api/authentication/sign-up", {
       ...data,
     })
     .then((res) => {
@@ -20,15 +20,29 @@ async function signUp(data) {
 }
 
 async function userIdDupCheck(userId) {
-  let status, data;
+  let status, code, data;
 
   await axios
-    .get("http://192.168.0.106:8080/api/authentication/id-dup-check/" + userId)
+    .get(url + "/api/authentication/id-dup-check/" + userId)
     .then((res) => {
-      ({ status, data } = res);
+      status = res.status;
+      ({ code, data } = res.data);
     });
 
-  return { status, data };
+  return { status, code, data };
 }
 
-export { signUp, userIdDupCheck };
+async function emailDupCheck(email) {
+  let status, code, data;
+
+  await axios
+    .get(url + "/api/authentication/email-dup-check/" + email)
+    .then((res) => {
+      status = res.status;
+      ({ code, data } = res.data);
+    });
+
+  return { status, code, data };
+}
+
+export { signUp, userIdDupCheck, emailDupCheck };
