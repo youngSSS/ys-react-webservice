@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { signUp } from "../../api/Authentication";
+import { signUp, userIdDupCheck } from "../../api/Authentication";
 
 import "../../styles/components/Authentication.scss";
 
@@ -20,7 +20,7 @@ function SignUp() {
   function signUpHandler() {
     const userData = {
       name: username,
-      id: userId,
+      userId: userId,
       password: userPw,
       email: userEmail,
     };
@@ -28,6 +28,20 @@ function SignUp() {
     signUp(userData).then(({ status }) => {
       if (status === 200) {
         alert("Complete");
+      } else {
+        alert("fail");
+      }
+    });
+  }
+
+  function userIdDupCheckHandler() {
+    userIdDupCheck(userId).then(({ status, data }) => {
+      if (status === 200) {
+        if (data) {
+          alert("이미 존재하는 아이디입니다.");
+        } else {
+          alert("중복확인이 완료되었습니다.");
+        }
       } else {
         alert("fail");
       }
@@ -52,7 +66,12 @@ function SignUp() {
             className="sign-up-item__content"
             onChange={(e) => setUserId(e.target.value)}
           />
-          <div className="sign-up-item__dup-check">중복확인</div>
+          <div
+            className="sign-up-item__dup-check"
+            onClick={userIdDupCheckHandler}
+          >
+            중복확인
+          </div>
         </div>
 
         <div className="sign-up-item">

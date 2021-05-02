@@ -4,18 +4,8 @@ const url = process.env.SERVER_URL;
 async function signUp(data) {
   let status;
 
-  // await axios({
-  //   method: "POST",
-  //   url: "http://172.30.1.38:8080/api/sign/sign-up",
-  //   headers: {
-  //     "content-type": "text/html",
-  //   },
-  //   body: {
-  //     ...data,
-  //   },
-  // })
   await axios
-    .post("http://172.30.1.38:8080/api/authentication/sign-up", {
+    .post("http://192.168.0.106:8080/api/authentication/sign-up", {
       ...data,
     })
     .then((res) => {
@@ -29,4 +19,16 @@ async function signUp(data) {
   return { status };
 }
 
-export { signUp };
+async function userIdDupCheck(userId) {
+  let status, data;
+
+  await axios
+    .get("http://192.168.0.106:8080/api/authentication/id-dup-check/" + userId)
+    .then((res) => {
+      ({ status, data } = res);
+    });
+
+  return { status, data };
+}
+
+export { signUp, userIdDupCheck };
