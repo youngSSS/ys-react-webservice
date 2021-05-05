@@ -22,6 +22,14 @@ function Authentication() {
   return (
     <div className="page">
       <div className="sign-in">
+        <a
+          className="google-sign-in"
+          href="/oauth2/authorization/google"
+          role="button"
+        >
+          Google Login
+        </a>
+
         <div className="sign-in-box">
           <div className="sign-in-box-item">
             <div className="sign-in-box-item__title">ID</div>
