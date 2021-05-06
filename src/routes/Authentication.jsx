@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
+import { GoogleSignIn } from "../functions/GoogleSignIn";
+
 import "../styles/routes/Authentication.scss";
 
 function Authentication() {
@@ -29,6 +31,7 @@ function Authentication() {
         >
           Google Login
         </a>
+        <GoogleSignIn />
 
         <div className="sign-in-box">
           <div className="sign-in-box-item">
