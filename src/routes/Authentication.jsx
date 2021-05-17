@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { GoogleSignIn } from "../functions/GoogleSignIn";
@@ -6,34 +6,21 @@ import { GoogleSignIn } from "../functions/GoogleSignIn";
 import "../styles/routes/Authentication.scss";
 
 function Authentication() {
-  const [id, setId] = useState();
-  const [pw, setPw] = useState();
+  const checkLogin = () => {
+    console.log(window.sessionStorage.getItem("id"));
+    console.log(window.sessionStorage.getItem("token"));
+  };
 
-  function signInHandler() {
-    console.log(id, pw);
-  }
-
-  function findId() {
-    console.log("find id");
-  }
-
-  function findPassword() {
-    console.log("find pw");
-  }
+  useEffect(() => {
+    checkLogin();
+  }, []);
 
   return (
     <div className="page">
       <div className="sign-in">
-        <a
-          className="google-sign-in"
-          href="/oauth2/authorization/google"
-          role="button"
-        >
-          Google Login
-        </a>
         <GoogleSignIn />
 
-        <div className="sign-in-box">
+        {/* <div className="sign-in-box">
           <div className="sign-in-box-item">
             <div className="sign-in-box-item__title">ID</div>
             <input
@@ -67,7 +54,7 @@ function Authentication() {
         <div className="sign-functions-separator">|</div>
         <Link to="/authentication/sign-up" className="sign-function">
           회원가입
-        </Link>
+        </Link> */}
       </div>
     </div>
   );
