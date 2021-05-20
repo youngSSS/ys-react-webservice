@@ -5,12 +5,11 @@ import Contact from "../components/portfolio/Contact";
 import Profile from "../components/portfolio/Profile";
 import Skill from "../components/portfolio/Skill";
 import Project from "../components/portfolio/Project";
-import getPortfolio from "../api/Portfolio";
 
 import "../styles/routes/Portfolio.scss";
 
 function Portfolio() {
-  const [portfolioData, setPortfolioData] = useState({});
+  const [portfolio, setPortfolio] = useState({});
 
   // useEffect(() => {
   //   getPortfolio().then(({ status, data }) => {
