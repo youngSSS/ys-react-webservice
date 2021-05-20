@@ -7,8 +7,8 @@ import "../styles/routes/Authentication.scss";
 
 function Authentication() {
   const checkLogin = () => {
-    console.log(window.sessionStorage.getItem("id"));
-    console.log(window.sessionStorage.getItem("token"));
+    const userId = window.sessionStorage.getItem("id");
+    const token = window.sessionStorage.getItem("token");
   };
 
   useEffect(() => {
