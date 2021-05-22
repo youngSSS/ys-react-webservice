@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { UpdatePreview } from "./UpdatePreview";
-import "../../styles/components/UpdatePortfolio.scss";
-
 import {
   postPortfolio,
   putPortfolio,
   getPortfolio,
   deletePortfolio,
 } from "../../api/Portfolio";
+
+import "../../styles/components/UpdatePortfolio.scss";
 
 function UpdatePortfolio() {
   const [portfolio, setPortfolio] = useState({

@@ -1,25 +1,27 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import AboutMe from "../components/portfolio/AboutMe";
-import Contact from "../components/portfolio/Contact";
-import Profile from "../components/portfolio/Profile";
-import Skill from "../components/portfolio/Skill";
-import Project from "../components/portfolio/Project";
+import { getPortfolio } from "../api/Portfolio";
+import { Markdown } from "../components/utils/Markdown";
 
 import "../styles/routes/Portfolio.scss";
 
 function Portfolio() {
-  const [portfolio, setPortfolio] = useState({});
+  const portfolioId = 1;
+  const [portfolio, setPortfolio] = useState({
+    aboutMe: "",
+    profile: "",
+    contact: "",
+    skill: "",
+    project: "",
+  });
 
-  // useEffect(() => {
-  //   getPortfolio().then(({ status, data }) => {
-  //     if (status === 200) {
-  //       setPortfolioData(data);
-  //     } else {
-  //       if (status === 404) alert("api 주소를 찾을 수 없습니다.");
-  //     }
-  //   });
-  // }, []);
+  useEffect(() => {
+    getPortfolio(portfolioId).then(({ code, data }) => {
+      if (code === 200) {
+        setPortfolio(data);
+      }
+    });
+  }, []);
 
   return (
     <div className="page">
@@ -30,11 +32,40 @@ function Portfolio() {
       </div>
 
       <div className="portfolio">
-        <AboutMe />
-        <Profile />
-        <Contact />
-        <Skill />
-        <Project />
+        <div className="portfolio__about-me">
+          <div className="portfolio__title">About Me</div>
+          <div className="portfolio__content">
+            <Markdown text={portfolio.aboutMe} />
+          </div>
+        </div>
+
+        <div className="portfolio__profile">
+          <div className="portfolio__title">Profile</div>
+          <div className="portfolio__content">
+            <Markdown text={portfolio.profile} />
+          </div>
+        </div>
+
+        <div className="portfolio__contact">
+          <div className="portfolio__title">Contact</div>
+          <div className="portfolio__content">
+            <Markdown text={portfolio.contact} />
+          </div>
+        </div>
+
+        <div className="portfolio__skill">
+          <div className="portfolio__title">Skill</div>
+          <div className="portfolio__content">
+            <Markdown text={portfolio.skill} />
+          </div>
+        </div>
+
+        <div className="portfolio__project">
+          <div className="portfolio__title">Project</div>
+          <div className="portfolio__content">
+            <Markdown text={portfolio.project} />
+          </div>
+        </div>
       </div>
     </div>
   );
